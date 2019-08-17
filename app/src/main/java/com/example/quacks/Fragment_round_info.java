@@ -32,6 +32,7 @@ public class Fragment_round_info extends Fragment implements View.OnClickListene
 
     private View thisView;
     private ConstraintLayout cl_flask;
+    private ImageView img_flask;
 
 
 
@@ -41,7 +42,7 @@ public class Fragment_round_info extends Fragment implements View.OnClickListene
         View v = inflater.inflate(R.layout.fragment_fragment_round_info, container, false);
 
 
-        final ImageView img_flask = v.findViewById(R.id.img_flask);
+        img_flask = v.findViewById(R.id.img_flask);
 
         final ConstraintLayout cl_points =v.findViewById(R.id.cl_points);
         cl_points.setOnClickListener(new View.OnClickListener() {
@@ -206,9 +207,10 @@ public class Fragment_round_info extends Fragment implements View.OnClickListene
             cl_flask.setAlpha(0.4f);
         }
 
+    }
 
-
-
+    public void updateAfterFill(){
+        img_flask.setImageResource(R.drawable.flask_full);
     }
 
 
