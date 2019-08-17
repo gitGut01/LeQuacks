@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAnimals"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:background="#E0BEB7"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="2dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <FrameLayout
+        android:id="@+id/fl_close_points"
+        android:layout_width="400dp"
+        android:layout_height="match_parent"
+        android:background="#6D494242"
+        app:layout_constraintStart_toEndOf="@+id/rvAnimals"
+        tools:layout_editor_absoluteY="-16dp">
+
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

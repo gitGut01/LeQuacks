@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Quacks</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sfasfas">saøfjaslkjfklsdjfdsjfsdfs</string>
+
+
+
+    <string name="blue_set_1_info">
+        If you draw a blue chip from your bag, put it in your pot. You can then take chips out of \n
+        your bag according to the number shown on the chip.\n
+        For a 1-chip, take out 1 chip.\n
+        For a 2-chip, take out 2 chips.\n
+        For a 4-chip, take out 4 chips.\n
+        From the chips drawn, you may lay down 1 of them as your next chip.\n
+        Put the other chips back into the bag.\n
+        If you do not like what you see, you may put them all back into the bag.\n
+        If the newly laid chip also has a bonus, it can also be carried out immediately.
+    </string>
+
+
+    <string name="blue_set_2_info">
+        If you place a blue chip on a ruby space,\n
+        you immediately receive 1 ruby
+    </string>
+
+
+    <string name="blue_set_3_info">
+        If you place a blue chip on a ruby space,\n
+        you immediately receive 1 ruby";
+    </string>
+
+
+    <string name="red_set_1_info">
+        If there are already orange chips in your pot move the red chip forward\n
+        according to the chat:\n
+        if(1 or 2 orange):\n
+        red += 1\n
+        \n
+        if (orange >=3):\n
+        red += 2
+    </string>
+
+
+
+    <string name="yellow_set_1_info">
+        If the previously played chip was white,\n
+        put the white chip back into the bag
+    </string>
+
+</resources>
