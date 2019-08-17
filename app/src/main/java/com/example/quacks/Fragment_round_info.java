@@ -10,6 +10,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -30,6 +31,7 @@ public class Fragment_round_info extends Fragment implements View.OnClickListene
     private ArrayList<Integer> arrField;
 
     private View thisView;
+    private ConstraintLayout cl_flask;
 
 
 
@@ -38,10 +40,10 @@ public class Fragment_round_info extends Fragment implements View.OnClickListene
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_fragment_round_info, container, false);
 
-        ConstraintLayout cl_points =v.findViewById(R.id.cl_points);
-        //cl_points.setAlpha(0);
 
+        final ImageView img_flask = v.findViewById(R.id.img_flask);
 
+        final ConstraintLayout cl_points =v.findViewById(R.id.cl_points);
         cl_points.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -102,18 +104,39 @@ public class Fragment_round_info extends Fragment implements View.OnClickListene
         });
 
 
-        ConstraintLayout cl_flask = v.findViewById(R.id.cl_flask);
+        //Remove the last white chip played and put it back into your bag
+        cl_flask = v.findViewById(R.id.cl_flask);
         cl_flask.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
                 if(MainActivity.flask_full){
-                    ImageView img_flask = v.findViewById(R.id.img_flask);
                     img_flask.setImageResource(R.drawable.flask_empty);
                     MainActivity.flask_full = false;
+                    String strToast = "Put the last white back in the bag";
+
+                    int currentStepItemNr = MainActivity.board[MainActivity.currentStep];
+
+                    MainActivity.arrBag.add(currentStepItemNr);     //Put item back in bag
+
+                    MainActivity.board[MainActivity.currentStep] = -1;      //Clear the board at the step
+
+                    //Set back the step values after item is put back in bag
+                    if(currentStepItemNr == 0){
+                        MainActivity.currentStep -= 1;
+                    }else if(currentStepItemNr == 1){
+                        MainActivity.currentStep -= 2;
+                    }else if(currentStepItemNr == 2){
+                        MainActivity.currentStep -= 3;
+                    }
+
+
+                    MainActivity.mainActivity.img_current_item.setImageDrawable(null); //Remove the image of the white
+
+                    Toast.makeText(MainActivity.mainActivity, strToast,
+                            Toast.LENGTH_SHORT).show();
+
                 }
-
-
 
             }
         });
@@ -162,6 +185,30 @@ public class Fragment_round_info extends Fragment implements View.OnClickListene
             fl_size.setScaleY(1);
 
         }
+
+
+
+        //Flask active
+
+        int currentItemNr;
+
+        if(MainActivity.currentStep == -1){
+            currentItemNr = MainActivity.board[MainActivity.currentStep + 1];
+        }else{
+            currentItemNr = MainActivity.board[MainActivity.currentStep];
+        }
+
+        if((currentItemNr == 0 || currentItemNr == 1 || currentItemNr == 2) && !MainActivity.isExploded){
+            cl_flask.setEnabled(true);
+            cl_flask.setAlpha(1);
+        }else{
+            cl_flask.setEnabled(false);
+            cl_flask.setAlpha(0.4f);
+        }
+
+
+
+
     }
 
 

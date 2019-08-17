@@ -91,8 +91,11 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
     public static int currentCredits = 0;
     public static boolean flask_full = true;
 
+    public ImageView img_current_item;
+
     public static int currentExplotionValue = 7;
     public static boolean isExploded = false;
+
     public static MainActivity mainActivity;
 
     public static ArrayList<Integer> arrBag = new ArrayList<>(Arrays.asList(0, 0, 0, 0, 1, 1, 2, 3, 4));
@@ -197,7 +200,7 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
                 .commit();
 
 
-        final ImageView img_current_item = (ImageView) findViewById(R.id.img_current_item);
+        img_current_item = (ImageView) findViewById(R.id.img_current_item);
         btn_next = (Button) findViewById(R.id.btn_next);
         btn_next.setOnClickListener(new View.OnClickListener() {
 

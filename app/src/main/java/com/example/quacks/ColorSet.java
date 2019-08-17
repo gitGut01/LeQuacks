@@ -1,18 +1,12 @@
 package com.example.quacks;
 
 import android.content.Context;
-import android.media.Image;
-import android.os.Bundle;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.quacks.ColorInfo.Black_set_info;
 import com.example.quacks.ColorInfo.Blue_set_1_info;
 import com.example.quacks.ColorInfo.Blue_set_2_info;
 import com.example.quacks.ColorInfo.Blue_set_3_info;
 import com.example.quacks.ColorInfo.Blue_set_4_info;
-import com.example.quacks.ColorInfo.ColorInfo;
 import com.example.quacks.ColorInfo.ColorInfoAb;
 import com.example.quacks.ColorInfo.Green_set_1_info;
 import com.example.quacks.ColorInfo.Orange_set_info;
@@ -22,7 +16,6 @@ import com.example.quacks.ColorInfo.Yellow_set_1_info;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class ColorSet {
 
