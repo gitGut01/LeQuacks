@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.quacks.ChooseSet.FragmentChooseSet;
@@ -419,6 +418,37 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
                 .commit();
     }
 
+    public void openFragmentPoints(){
+        FragmentPoints fragmentPoints = new FragmentPoints();
+
+        getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(R.anim.enter_from_left, 0, 0, R.anim.exit_to_left)
+                .replace(R.id.container_points, fragmentPoints)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    public void openFragmentBag(){
+        FragmentBag fragmentBag = new FragmentBag();
+
+        getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(R.anim.enter_from_top, 0, 0, R.anim.exit_to_top)
+                .replace(R.id.container_points, fragmentBag)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    public void openFragmentBoard(){
+
+        FragmentB fragmentB = new FragmentB();
+
+        getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(R.anim.enter_from_right, 0, 0, R.anim.exit_to_right)
+                .replace(R.id.container_board, fragmentB, "SHOW_BOARD_TAG")
+                .addToBackStack(null)
+                .commit();
+    }
+
     public void openBuyRefillAndStep(){
 
     }
@@ -458,9 +488,12 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
     public void onBackPressed() {
 
         activateButtons();
+
+        /*
         if(getSupportFragmentManager().findFragmentByTag("ROUND_FINISHED")!= null){
             openBuyItem();
         }
+        */
 
         super.onBackPressed();
 

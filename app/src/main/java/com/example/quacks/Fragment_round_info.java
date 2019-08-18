@@ -48,15 +48,7 @@ public class Fragment_round_info extends Fragment implements View.OnClickListene
         cl_points.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-
-                FragmentPoints fragmentPoints = new FragmentPoints();
-
-
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .setCustomAnimations(R.anim.enter_from_left, 0, 0, R.anim.exit_to_left)
-                        .replace(R.id.container_points, fragmentPoints)
-                        .addToBackStack(null)
-                        .commit();
+                MainActivity.mainActivity.openFragmentPoints();
             }
         });
 
@@ -64,14 +56,7 @@ public class Fragment_round_info extends Fragment implements View.OnClickListene
         cl_round.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-
-                FragmentBag fragmentBag = new FragmentBag();
-
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .setCustomAnimations(R.anim.enter_from_top, 0, 0, R.anim.exit_to_top)
-                        .replace(R.id.container_points, fragmentBag)
-                        .addToBackStack(null)
-                        .commit();
+                MainActivity.mainActivity.openFragmentBag();
             }
         });
 
@@ -87,16 +72,7 @@ public class Fragment_round_info extends Fragment implements View.OnClickListene
 
 
                 if(getActivity().getSupportFragmentManager().findFragmentByTag("SHOW_BOARD_TAG")== null){
-
-
-                    FragmentB fragmentB = new FragmentB();
-
-
-                    getActivity().getSupportFragmentManager().beginTransaction()
-                            .setCustomAnimations(R.anim.enter_from_right, 0, 0, R.anim.exit_to_right)
-                            .replace(R.id.container_board, fragmentB, "SHOW_BOARD_TAG")
-                            .addToBackStack(null)
-                            .commit();
+                    MainActivity.mainActivity.openFragmentBoard();
                 }else{
                     getActivity().onBackPressed();
                 }
