@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
     public static int currentWhite = 0;
     public static int currentCredits = 0;
     public static boolean flask_full = true;
+    public static int currentRound = 1;
 
     public ImageView img_current_item;
 
@@ -283,30 +284,6 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
             public void onClick(View v) {
 
                 openDice();
-
-                /*
-                currentPoint += arrItemField.get(currentStep + 1).getPoints();
-
-                if(arrItemField.get(currentStep + 1).isRuby()){
-                    currentRub += 1;
-                }
-
-                currentStep = -1;
-                currentWhite = 0;
-
-                arrBag = new ArrayList<>(arrBagBak);
-                Arrays.fill(board, -1);
-                fragment_round_info.updateInfo();
-
-                ((ImageView)findViewById(R.id.img_current_item)).setImageDrawable(null);
-
-
-                ((TextView) findViewById(R.id.txt_points)).setText("Points: " + 0);
-                //txt_credits.setText("Credits: " + arrItemField.get(currentStep + 1).getCredits());
-
-
-                openBuyItem();
-                */
             }
         });
 
@@ -329,8 +306,6 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
 
             }
         });
-
-
 
     }
 
@@ -412,7 +387,7 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
         FragmentBuyRefillAndStep fragmentBuyRefillAndStep = new FragmentBuyRefillAndStep();
 
         getSupportFragmentManager().beginTransaction()
-                .setCustomAnimations(R.anim.enter_from_button, 0, 0, R.anim.exit_to_left)
+                .setCustomAnimations(R.anim.enter_from_right, 0, 0, R.anim.exit_to_button)
                 .replace(R.id.container_round_finished, fragmentBuyRefillAndStep, "DICE")
                 .addToBackStack(null)
                 .commit();
@@ -488,13 +463,11 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
     public void onBackPressed() {
 
         activateButtons();
-
         /*
         if(getSupportFragmentManager().findFragmentByTag("ROUND_FINISHED")!= null){
             openBuyItem();
         }
         */
-
         super.onBackPressed();
 
     }

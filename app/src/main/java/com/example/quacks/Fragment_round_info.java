@@ -16,6 +16,8 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 
@@ -163,6 +165,9 @@ public class Fragment_round_info extends Fragment implements View.OnClickListene
 
         }
 
+        //Update round info
+        TextView tv_round = thisView.findViewById(R.id.tv_round);
+        tv_round.setText("Round: " + MainActivity.currentRound + "/9");
 
 
         //Flask active
@@ -175,13 +180,16 @@ public class Fragment_round_info extends Fragment implements View.OnClickListene
             currentItemNr = MainActivity.board[MainActivity.currentStep];
         }
 
-        if((currentItemNr == 0 || currentItemNr == 1 || currentItemNr == 2) && !MainActivity.isExploded){
-            cl_flask.setEnabled(true);
-            cl_flask.setAlpha(1);
-        }else{
+        if(MainActivity.flask_full) {
+            if ((currentItemNr == 0 || currentItemNr == 1 || currentItemNr == 2) && !MainActivity.isExploded) {
+                cl_flask.setEnabled(true);
+                cl_flask.setAlpha(1);
+                }
+        }else {
             cl_flask.setEnabled(false);
             cl_flask.setAlpha(0.4f);
         }
+
 
     }
 

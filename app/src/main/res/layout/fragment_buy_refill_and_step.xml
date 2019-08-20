@@ -106,6 +106,7 @@
         tools:layout_editor_absoluteY="637dp" />
 
     <FrameLayout
+        android:id="@+id/frameLayout2"
         android:layout_width="49dp"
         android:layout_height="39dp"
         app:layout_constraintStart_toEndOf="@+id/textView3"
@@ -157,4 +158,17 @@
         android:text="Buy"
         app:layout_constraintStart_toStartOf="@+id/img_refill"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btn_next_round"
+        android:layout_width="198dp"
+        android:layout_height="87dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="60dp"
+        android:text="Next round"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/img_move"
+        app:layout_constraintTop_toBottomOf="@+id/btn_buy_move" />
 </androidx.constraintlayout.widget.ConstraintLayout>

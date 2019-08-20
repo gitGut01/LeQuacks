@@ -47,7 +47,7 @@ public class BuyRecyclerViewAdapter extends RecyclerView.Adapter<BuyRecyclerView
 
     // binds the data to the TextView in each row
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         holder.cl_card.setBackgroundColor(mData.get(position).getBg());
         holder.tv_header.setText(mData.get(position).getHeader());
@@ -60,12 +60,16 @@ public class BuyRecyclerViewAdapter extends RecyclerView.Adapter<BuyRecyclerView
 
         holder.img_1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                v.startAnimation(AnimationUtils.loadAnimation(v.getContext(), R.anim.img_click));
 
-                buyTheItem(mData.get(position).get_item_for_bag()[1],
-                        mData.get(position).getPrice1());
+                if (!holder.bought_this_round) {
+                    v.startAnimation(AnimationUtils.loadAnimation(v.getContext(), R.anim.img_click));
 
-                Toast.makeText(v.getContext(), "You bought a " + mData.get(position).getColor() + " 2 item", Toast.LENGTH_SHORT).show();
+                    buyTheItem(mData.get(position).get_item_for_bag()[1],
+                            mData.get(position).getPrice1(), holder);
+
+                    Toast.makeText(v.getContext(), "You bought a " + mData.get(position).getColor() + " 2 item", Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
 
@@ -82,33 +86,39 @@ public class BuyRecyclerViewAdapter extends RecyclerView.Adapter<BuyRecyclerView
 
             holder.img_0.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    v.startAnimation(AnimationUtils.loadAnimation(v.getContext(), R.anim.img_click));
+                    if (!holder.bought_this_round) {
+                        v.startAnimation(AnimationUtils.loadAnimation(v.getContext(), R.anim.img_click));
 
-                    buyTheItem(mData.get(position).get_item_for_bag()[0],
-                            mData.get(position).getPrice0());
+                        buyTheItem(mData.get(position).get_item_for_bag()[0],
+                                mData.get(position).getPrice0(), holder);
 
-                    Toast.makeText(v.getContext(), "You bought a " + mData.get(position).getColor() + " 1 item", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(v.getContext(), "You bought a " + mData.get(position).getColor() + " 1 item", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
 
 
             holder.img_2.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    v.startAnimation(AnimationUtils.loadAnimation(v.getContext(), R.anim.img_click));
+                    if (!holder.bought_this_round) {
+                        v.startAnimation(AnimationUtils.loadAnimation(v.getContext(), R.anim.img_click));
 
-                    buyTheItem(mData.get(position).get_item_for_bag()[2],
-                            mData.get(position).getPrice2());
+                        buyTheItem(mData.get(position).get_item_for_bag()[2],
+                                mData.get(position).getPrice2(), holder);
 
-                    Toast.makeText(v.getContext(), "You bought a " + mData.get(position).getColor() + " 4 item", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(v.getContext(), "You bought a " + mData.get(position).getColor() + " 4 item", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
         }
     }
 
-    public void buyTheItem(int itemNr, int price){
+    public void buyTheItem(int itemNr, int price, ViewHolder holder){
         MainActivity.arrBag.add(itemNr);
         MainActivity.currentCredits -= price;
         listener.onInputBuyItem();
+        holder.cl_card.setAlpha(0.4f);
+        holder.bought_this_round = true;
     }
 
     // total number of rows
@@ -122,6 +132,8 @@ public class BuyRecyclerViewAdapter extends RecyclerView.Adapter<BuyRecyclerView
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView tv_header;
         TextView tv_info;
+
+        Boolean bought_this_round;
 
         TextView tv_0, tv_1, tv_2;
 
@@ -144,6 +156,9 @@ public class BuyRecyclerViewAdapter extends RecyclerView.Adapter<BuyRecyclerView
             img_2 = itemView.findViewById(R.id.img_2);
 
             cl_card = itemView.findViewById(R.id.cl_card);
+
+            bought_this_round = false;
+
 
 
             itemView.setOnClickListener(this);

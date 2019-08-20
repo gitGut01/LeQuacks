@@ -11,6 +11,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -63,13 +64,19 @@ public class FragmentB extends Fragment implements View.OnClickListener {
     }
 
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_b, container, false);
 
         //MainActivity.arrDrawable.get(0);
+        LinearLayout ll_close = v.findViewById(R.id.ll_close);
+        ll_close.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                getActivity().onBackPressed();
+            }
+        });
 
 
         return v;
