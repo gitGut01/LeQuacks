@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 
@@ -69,7 +70,6 @@ public class FragmentBuyRefillAndStep extends Fragment{
                 Arrays.fill(MainActivity.board, -1);
                 MainActivity.currentWhite = 0;
                 MainActivity.currentCredits = 0;
-
 
                 getActivity().onBackPressed();
                 //getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(0, R.anim.exit_to_button).remove(this).commit();

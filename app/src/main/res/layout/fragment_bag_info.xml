@@ -5,9 +5,13 @@
     android:id="@+id/cl_close"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#5B000000"
     tools:context=".Fragment_round_info">
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#5B000000"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="220dp"

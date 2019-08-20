@@ -1,7 +1,9 @@
 package com.example.quacks;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
+import android.renderscript.RenderScript;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -55,12 +59,21 @@ public class FragmentBag extends Fragment{
             0, 0, 0
     };
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_bag_info, container, false);
 
 
+        ConstraintLayout cl_close = v.findViewById(R.id.cl_close);
+        /*
+        RenderScript renderScript = RenderScript.create(MainActivity.mainActivity);
+        RSBlurProcessor r = new RSBlurProcessor(renderScript);
+
+        BitmapDrawable ob = new BitmapDrawable(getResources(), r.blur(RSBlurProcessor.getBitmapFromView(MainActivity.mainActivity.findViewById(R.id.cl_main)), 15, 5));
+        cl_close.setBackground(ob);
+        */
 
         for(int itemNr : MainActivity.arrBag){
             switch(itemNr){
@@ -146,7 +159,7 @@ public class FragmentBag extends Fragment{
 
         }
 
-        ConstraintLayout cl_close = v.findViewById(R.id.cl_close);
+
         cl_close.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
