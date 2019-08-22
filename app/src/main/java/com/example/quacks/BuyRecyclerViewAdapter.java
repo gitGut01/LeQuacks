@@ -24,9 +24,10 @@ public class BuyRecyclerViewAdapter extends RecyclerView.Adapter<BuyRecyclerView
     private ItemClickListener mClickListener;
 
     AdapterInterface listener;
+    int buy_count = 0;
 
     public interface AdapterInterface{
-        void onInputBuyItem();
+        void onInputBuyItem(int i);
     }
 
 
@@ -64,10 +65,11 @@ public class BuyRecyclerViewAdapter extends RecyclerView.Adapter<BuyRecyclerView
                 if (!holder.bought_this_round) {
                     v.startAnimation(AnimationUtils.loadAnimation(v.getContext(), R.anim.img_click));
 
-                    buyTheItem(mData.get(position).get_item_for_bag()[1],
-                            mData.get(position).getPrice1(), holder);
+                    String s = "You bought a " + mData.get(position).getColor() + " 2 item";
 
-                    Toast.makeText(v.getContext(), "You bought a " + mData.get(position).getColor() + " 2 item", Toast.LENGTH_SHORT).show();
+                    buyTheItem(mData.get(position).get_item_for_bag()[1],
+                            mData.get(position).getPrice1(), holder, s);
+
 
                 }
             }
@@ -89,10 +91,10 @@ public class BuyRecyclerViewAdapter extends RecyclerView.Adapter<BuyRecyclerView
                     if (!holder.bought_this_round) {
                         v.startAnimation(AnimationUtils.loadAnimation(v.getContext(), R.anim.img_click));
 
-                        buyTheItem(mData.get(position).get_item_for_bag()[0],
-                                mData.get(position).getPrice0(), holder);
+                        String s = "You bought a " + mData.get(position).getColor() + " 1 item";
 
-                        Toast.makeText(v.getContext(), "You bought a " + mData.get(position).getColor() + " 1 item", Toast.LENGTH_SHORT).show();
+                        buyTheItem(mData.get(position).get_item_for_bag()[0],
+                                mData.get(position).getPrice0(), holder, s);
                     }
                 }
             });
@@ -103,22 +105,37 @@ public class BuyRecyclerViewAdapter extends RecyclerView.Adapter<BuyRecyclerView
                     if (!holder.bought_this_round) {
                         v.startAnimation(AnimationUtils.loadAnimation(v.getContext(), R.anim.img_click));
 
-                        buyTheItem(mData.get(position).get_item_for_bag()[2],
-                                mData.get(position).getPrice2(), holder);
+                        String s = "You bought a " + mData.get(position).getColor() + " 4 item";
 
-                        Toast.makeText(v.getContext(), "You bought a " + mData.get(position).getColor() + " 4 item", Toast.LENGTH_SHORT).show();
+                        buyTheItem(mData.get(position).get_item_for_bag()[2],
+                                mData.get(position).getPrice2(), holder, s);
+
                     }
                 }
             });
         }
     }
 
-    public void buyTheItem(int itemNr, int price, ViewHolder holder){
-        MainActivity.arrBag.add(itemNr);
-        MainActivity.currentCredits -= price;
-        listener.onInputBuyItem();
-        holder.cl_card.setAlpha(0.4f);
-        holder.bought_this_round = true;
+    public void buyTheItem(int itemNr, int price, ViewHolder holder, String msg){
+
+        String s;
+
+        if(MainActivity.currentCredits >= price){
+            MainActivity.arrBag.add(itemNr);
+            MainActivity.currentCredits -= price;
+            buy_count += 1;
+
+            holder.cl_card.setAlpha(0.4f);
+            holder.bought_this_round = true;
+
+            s = msg;
+
+        }else{
+            s = "You don´t have enough credits ";
+        }
+
+        Toast.makeText(MainActivity.mainActivity, s, Toast.LENGTH_SHORT).show();
+        listener.onInputBuyItem(buy_count);
     }
 
     // total number of rows
@@ -184,7 +201,4 @@ public class BuyRecyclerViewAdapter extends RecyclerView.Adapter<BuyRecyclerView
     public interface ItemClickListener {
         void onItemClick(View view, int position);
     }
-
-
-
 }

@@ -23,6 +23,7 @@ public class FragmentBuyItem extends Fragment implements BuyRecyclerViewAdapter.
 
 
     TextView tv_credits;
+    TextView tv_buy_limit;
 
 
     @Override
@@ -31,8 +32,13 @@ public class FragmentBuyItem extends Fragment implements BuyRecyclerViewAdapter.
     }
 
     @Override
-    public void onInputBuyItem() {
+    public void onInputBuyItem(int i) {
         tv_credits.setText("Credits: " + MainActivity.currentCredits);
+        tv_buy_limit.setText(i + "/2");
+
+        if(i >= 2){
+            openRubyStore();
+        }
 
     }
 
@@ -84,17 +90,25 @@ public class FragmentBuyItem extends Fragment implements BuyRecyclerViewAdapter.
         tv_credits = v.findViewById(R.id.tv_credits);
         tv_credits.setText("Credits: " + MainActivity.currentCredits);
 
+        tv_buy_limit = v.findViewById(R.id.tv_buy_limit);
+        tv_buy_limit.setText("0/2");
+
         Button btn_ruby_store = v.findViewById(R.id.btn_ruby_store);
         btn_ruby_store.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                getActivity().onBackPressed();
-                MainActivity.mainActivity.openRubyStore();
+                openRubyStore();
             }
         });
 
 
         return v;
+    }
+
+    private void openRubyStore(){
+        MainActivity.currentCredits = 0;
+        getActivity().onBackPressed();
+        MainActivity.mainActivity.openRubyStore();
     }
 
 

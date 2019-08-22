@@ -69,7 +69,6 @@ public class FragmentBuyRefillAndStep extends Fragment{
                 MainActivity.currentStep = -1;
                 Arrays.fill(MainActivity.board, -1);
                 MainActivity.currentWhite = 0;
-                MainActivity.currentCredits = 0;
 
                 getActivity().onBackPressed();
                 //getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(0, R.anim.exit_to_button).remove(this).commit();
