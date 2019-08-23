@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.quacks.ChooseSet.FragmentChooseSet;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,10 +37,6 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
 
     private Button btn_next;
     private Button btn_back_in_bag;
-    private Button button;
-    private Button btn_board;
-    private Button btn_show_points;
-
 
     private boolean boShowFrag = false;
 
@@ -83,13 +78,14 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
 
     public static int[] board = new int[54];
 
-    public static int currentStep = -1;
+    public static int currentStep = 0;
     public static int currentPoint = 0;
     public static int currentRub = 0;
     public static int currentWhite = 0;
     public static int currentCredits = 0;
     public static boolean flask_full = true;
     public static int currentRound = 1;
+    public static int currentStart = 0;
 
     public ImageView img_current_item;
 
@@ -247,35 +243,6 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
         });
 
 
-        button = (Button) findViewById(R.id.btn_color);
-        button.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-
-
-            }
-        });
-
-
-        btn_board = (Button) findViewById(R.id.btn_board);
-        btn_board.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-
-                deactivateButtons();
-
-                fragmentB = new FragmentB();
-
-
-                getSupportFragmentManager().beginTransaction()
-                        .setCustomAnimations(R.anim.enter_from_right, 0, 0, R.anim.exit_to_right)
-                        .replace(R.id.container_board, fragmentB)
-                        .addToBackStack(null)
-                        .commit();
-
-
-            }
-        });
 
         //Put the item back in the bag
         btn_back_in_bag = (Button) findViewById(R.id.btn_back_in_bag);
@@ -287,25 +254,6 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
             }
         });
 
-        //Show Points
-        btn_show_points= (Button) findViewById(R.id.btn_show_points);
-        btn_show_points.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-
-
-                deactivateButtons();
-
-                FragmentChooseSet fragmentChooseSet = new FragmentChooseSet();
-
-                getSupportFragmentManager().beginTransaction()
-                        .setCustomAnimations(R.anim.enter_from_button, 0, 0, R.anim.exit_to_button)
-                        .replace(R.id.container_points, fragmentChooseSet)
-                        .addToBackStack(null)
-                        .commit();
-
-            }
-        });
 
     }
 
@@ -374,6 +322,14 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
     }
 
     public void openDice(){
+
+        if(currentStep + 1 < arrItemField.size()) {
+            if (arrItemField.get(currentStep + 1).isRuby()) {
+                currentRub += 1;
+                mainActivity.fragment_round_info.updateInfo();
+            }
+        }
+
         FragmentDice fragmentDice = new FragmentDice();
 
         getSupportFragmentManager().beginTransaction()
@@ -432,17 +388,11 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
     public void deactivateButtons(){
         btn_next.setEnabled(false);
         btn_back_in_bag.setEnabled(false);
-        button.setEnabled(false);
-        btn_board.setEnabled(false);
-        btn_show_points.setEnabled(false);
     }
 
     public void activateButtons(){
         btn_next.setEnabled(true);
         btn_back_in_bag.setEnabled(true);
-        button.setEnabled(true);
-        btn_board.setEnabled(true);
-        btn_show_points.setEnabled(true);
     }
 
 

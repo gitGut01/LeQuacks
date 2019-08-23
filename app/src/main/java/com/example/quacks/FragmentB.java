@@ -1,17 +1,21 @@
 package com.example.quacks;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,7 +31,7 @@ public class FragmentB extends Fragment implements View.OnClickListener {
 
 
     //ImageView white_1;
-    ArrayList<ImageView> arrIvInB;
+    ArrayList<FrameLayout> arrIvInB;
 
 
     public interface FragmentBListener {
@@ -39,36 +43,17 @@ public class FragmentB extends Fragment implements View.OnClickListener {
 
         Log.d("updated", "updated");
 
-
-        //ImageView vv = (ImageView) arrIvInB.get(13);
-
-        //vv.setImageResource(R.drawable.blue_1);
-
-        //arrIvInB.get(8).setImageResource(R.drawable.blue_1);
-
-
-
-        //((ImageView) getView().findViewById(R.id.e_0)).setImageResource(R.drawable.blue_1);
-
-        /*
-        for(int i = 0; i < board.length - 1; i++){
-
-            if(board[i] != -1){
-                //ImageView iv = getView().findViewById(R.id.);
-                arrIvInB.get(i).setImageResource(R.drawable.blue_1);
-
-            }
-        }
-        */
-
     }
 
+
+    MainActivity mainActivity;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_b, container, false);
 
+        mainActivity = MainActivity.mainActivity;
         //MainActivity.arrDrawable.get(0);
         LinearLayout ll_close = v.findViewById(R.id.ll_close);
         ll_close.setOnClickListener(new View.OnClickListener() {
@@ -88,77 +73,101 @@ public class FragmentB extends Fragment implements View.OnClickListener {
         //Array of all ImageViews in FragmentB
 
         arrIvInB = new ArrayList<>(Arrays.asList(
-                (ImageView) getView().findViewById(R.id.e_00), (ImageView) getView().findViewById(R.id.e_01),
-                (ImageView) getView().findViewById(R.id.e_02), (ImageView) getView().findViewById(R.id.e_03),
+                (FrameLayout) getView().findViewById(R.id.fl_00), (FrameLayout) getView().findViewById(R.id.fl_01),
+                (FrameLayout) getView().findViewById(R.id.fl_02), (FrameLayout) getView().findViewById(R.id.fl_03),
 
-                (ImageView) getView().findViewById(R.id.e_04), (ImageView) getView().findViewById(R.id.e_05),
-                (ImageView) getView().findViewById(R.id.e_06), (ImageView) getView().findViewById(R.id.e_07),
+                (FrameLayout) getView().findViewById(R.id.fl_04), (FrameLayout) getView().findViewById(R.id.fl_05),
+                (FrameLayout) getView().findViewById(R.id.fl_06), (FrameLayout) getView().findViewById(R.id.fl_07),
 
-                (ImageView) getView().findViewById(R.id.e_08), (ImageView) getView().findViewById(R.id.e_09),
-                (ImageView) getView().findViewById(R.id.e_10), (ImageView) getView().findViewById(R.id.e_11),
+                (FrameLayout) getView().findViewById(R.id.fl_08), (FrameLayout) getView().findViewById(R.id.fl_09),
+                (FrameLayout) getView().findViewById(R.id.fl_10), (FrameLayout) getView().findViewById(R.id.fl_11),
 
-                (ImageView) getView().findViewById(R.id.e_12), (ImageView) getView().findViewById(R.id.e_13),
-                (ImageView) getView().findViewById(R.id.e_14), (ImageView) getView().findViewById(R.id.e_15),
+                (FrameLayout) getView().findViewById(R.id.fl_12), (FrameLayout) getView().findViewById(R.id.fl_13),
+                (FrameLayout) getView().findViewById(R.id.fl_14), (FrameLayout) getView().findViewById(R.id.fl_15),
 
-                (ImageView) getView().findViewById(R.id.e_15_), (ImageView) getView().findViewById(R.id.e_16),
-                (ImageView) getView().findViewById(R.id.e_16_), (ImageView) getView().findViewById(R.id.e_17),
+                (FrameLayout) getView().findViewById(R.id.fl_15_), (FrameLayout) getView().findViewById(R.id.fl_16),
+                (FrameLayout) getView().findViewById(R.id.fl_16_), (FrameLayout) getView().findViewById(R.id.fl_17),
 
-                (ImageView) getView().findViewById(R.id.e_17_), (ImageView) getView().findViewById(R.id.e_18),
-                (ImageView) getView().findViewById(R.id.e_18_), (ImageView) getView().findViewById(R.id.e_19),
+                (FrameLayout) getView().findViewById(R.id.fl_17_), (FrameLayout) getView().findViewById(R.id.fl_18),
+                (FrameLayout) getView().findViewById(R.id.fl_18_), (FrameLayout) getView().findViewById(R.id.fl_19),
 
-                (ImageView) getView().findViewById(R.id.e_19_), (ImageView) getView().findViewById(R.id.e_20),
-                (ImageView) getView().findViewById(R.id.e_20_), (ImageView) getView().findViewById(R.id.e_21),
+                (FrameLayout) getView().findViewById(R.id.fl_19_), (FrameLayout) getView().findViewById(R.id.fl_20),
+                (FrameLayout) getView().findViewById(R.id.fl_20_), (FrameLayout) getView().findViewById(R.id.fl_21),
 
-                (ImageView) getView().findViewById(R.id.e_21_), (ImageView) getView().findViewById(R.id.e_22),
-                (ImageView) getView().findViewById(R.id.e_22_), (ImageView) getView().findViewById(R.id.e_23),
+                (FrameLayout) getView().findViewById(R.id.fl_21_), (FrameLayout) getView().findViewById(R.id.fl_22),
+                (FrameLayout) getView().findViewById(R.id.fl_22_), (FrameLayout) getView().findViewById(R.id.fl_23),
 
-                (ImageView) getView().findViewById(R.id.e_23_), (ImageView) getView().findViewById(R.id.e_24),
-                (ImageView) getView().findViewById(R.id.e_24_), (ImageView) getView().findViewById(R.id.e_25),
+                (FrameLayout) getView().findViewById(R.id.fl_23_), (FrameLayout) getView().findViewById(R.id.fl_24),
+                (FrameLayout) getView().findViewById(R.id.fl_24_), (FrameLayout) getView().findViewById(R.id.fl_25),
 
-                (ImageView) getView().findViewById(R.id.e_25_), (ImageView) getView().findViewById(R.id.e_26),
-                (ImageView) getView().findViewById(R.id.e_26_), (ImageView) getView().findViewById(R.id.e_27),
+                (FrameLayout) getView().findViewById(R.id.fl_25_), (FrameLayout) getView().findViewById(R.id.fl_26),
+                (FrameLayout) getView().findViewById(R.id.fl_26_), (FrameLayout) getView().findViewById(R.id.fl_27),
 
-                (ImageView) getView().findViewById(R.id.e_27_), (ImageView) getView().findViewById(R.id.e_28),
-                (ImageView) getView().findViewById(R.id.e_28_), (ImageView) getView().findViewById(R.id.e_29),
+                (FrameLayout) getView().findViewById(R.id.fl_27_), (FrameLayout) getView().findViewById(R.id.fl_28),
+                (FrameLayout) getView().findViewById(R.id.fl_28_), (FrameLayout) getView().findViewById(R.id.fl_29),
 
-                (ImageView) getView().findViewById(R.id.e_29_), (ImageView) getView().findViewById(R.id.e_30),
-                (ImageView) getView().findViewById(R.id.e_30_), (ImageView) getView().findViewById(R.id.e_31),
+                (FrameLayout) getView().findViewById(R.id.fl_29_), (FrameLayout) getView().findViewById(R.id.fl_30),
+                (FrameLayout) getView().findViewById(R.id.fl_30_), (FrameLayout) getView().findViewById(R.id.fl_31),
 
-                (ImageView) getView().findViewById(R.id.e_31_), (ImageView) getView().findViewById(R.id.e_32),
-                (ImageView) getView().findViewById(R.id.e_32_), (ImageView) getView().findViewById(R.id.e_33),
+                (FrameLayout) getView().findViewById(R.id.fl_31_), (FrameLayout) getView().findViewById(R.id.fl_32),
+                (FrameLayout) getView().findViewById(R.id.fl_32_), (FrameLayout) getView().findViewById(R.id.fl_33),
 
-                (ImageView) getView().findViewById(R.id.e_33_), (ImageView) getView().findViewById(R.id.e_35)
+                (FrameLayout) getView().findViewById(R.id.fl_33_), (FrameLayout) getView().findViewById(R.id.fl_35)
         ));
 
         int[] board = MainActivity.board;
 
-        //Log.d("oppp", Integer.toString(arrIvInB.size()) + "   " + Integer.toString(board.length));
+        ImageView imgStart = new ImageView(mainActivity);
+        imgStart.setImageResource(R.drawable.start_step);
+        imgStart.setScaleX(0.8f);
+        imgStart.setScaleY(0.8f);
+        arrIvInB.get(MainActivity.currentStart).addView(imgStart);
 
-        for(int i = 0; i < board.length; i++){
-
-            if(board[i] != -1){
-                //ImageView iv = getView().findViewById(R.id.);
-                arrIvInB.get(i).setImageResource(MainActivity.arrDrawable.get(board[i]));
-
-                Log.d("oppp", arrIvInB.get(i).toString()+  "   "  + board[i]);
-            }else{
-                arrIvInB.get(i).setAlpha(0.7f);
-            }
-        }
 
         if(MainActivity.isExploded){
-            arrIvInB.get(MainActivity.currentStep).setImageResource(R.drawable.explosion);
+            ImageView imgExp = new ImageView(mainActivity);
+            imgExp.setImageResource(R.drawable.explosion);
+            arrIvInB.get(MainActivity.currentStep).addView(imgExp);
         }
 
+        for(int i = 0; i < board.length; i++){
+            ImageView imageView = new ImageView(mainActivity);
+            ImageView imgRuby = new ImageView(mainActivity);
+            ImageView imgPoints = new ImageView(mainActivity);
 
-        //Log.d("oppp", Arrays.toString(arrIvInB.toArray()));
+            TextView txtField = new TextView(mainActivity);
+            txtField.setTypeface(null, Typeface.BOLD);
+            txtField.setGravity(Gravity.CENTER);
 
-        //ImageView vv = (ImageView) arrIvInB.get(6);
 
-        //ImageView e_0 = v.findViewById();
-        //vv.setImageResource(R.drawable.black_4);
+            ItemField itemField = MainActivity.arrItemField.get(i);
 
-        Log.d("updated", "wow");
+            imgRuby.setImageResource(itemField.getDrawableRuby());
+            imgPoints.setImageResource(itemField.getDrawablePoints());
+
+            if(board[i] != -1){
+
+                imageView.setImageResource(MainActivity.arrDrawable.get(board[i]));
+                txtField.setText("");
+
+                if(MainActivity.isExploded && i == MainActivity.currentStep){
+                    imageView.setScaleX(0.6f);
+                    imageView.setScaleY(0.6f);
+                }
+
+
+            }else{
+                imageView.setImageResource(R.drawable.empty_field);
+                imageView.setAlpha(0.5f);
+                txtField.setText(itemField.getCredits() + "");
+            }
+
+            arrIvInB.get(i).addView(imageView);
+            arrIvInB.get(i).addView(imgRuby);
+            arrIvInB.get(i).addView(imgPoints);
+            arrIvInB.get(i).addView(txtField);
+
+        }
     }
 
     @Override

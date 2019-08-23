@@ -22,9 +22,10 @@ import java.util.Arrays;
 
 public class FragmentBuyRefillAndStep extends Fragment{
 
-
+    private Button btn_buy_move;
     private Button btn_buy_fill;
     private Button btn_next_round;
+
     private ImageView img_refill;
 
     @Nullable
@@ -33,19 +34,36 @@ public class FragmentBuyRefillAndStep extends Fragment{
         View v = inflater.inflate(R.layout.fragment_buy_refill_and_step, container, false);
 
         img_refill = v.findViewById(R.id.img_refill);
+
+
+        btn_buy_move = v.findViewById(R.id.btn_buy_move);
+        btn_buy_move.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                String toast = "Not enough rubies";
+
+                if(MainActivity.currentRub >= 2) {
+                    MainActivity.currentRub -= 2;
+                    MainActivity.currentStart += 1;
+                    btn_buy_move.setEnabled(false);
+
+                    toast = "You start field is moved by +1 step";
+                    MainActivity.mainActivity.fragment_round_info.updateInfo();
+                }
+
+                Toast.makeText(MainActivity.mainActivity, toast,
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
         btn_buy_fill = v.findViewById(R.id.btn_buy_fill);
-
-        if(MainActivity.flask_full){
-            btn_buy_fill.setEnabled(false);
-        }
-
         btn_buy_fill.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
                 String toast = "Not enough rubies";
 
-                if(MainActivity.currentRub > 2) {
+                if(MainActivity.currentRub >= 2) {
                     MainActivity.currentRub -= 2;
                     MainActivity.flask_full = true;
                     MainActivity.mainActivity.fragment_round_info.updateAfterFill();
@@ -66,7 +84,7 @@ public class FragmentBuyRefillAndStep extends Fragment{
         btn_next_round.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 MainActivity.currentRound += 1;
-                MainActivity.currentStep = -1;
+                MainActivity.currentStep = MainActivity.currentStart;
                 Arrays.fill(MainActivity.board, -1);
                 MainActivity.currentWhite = 0;
 
@@ -75,6 +93,10 @@ public class FragmentBuyRefillAndStep extends Fragment{
                 MainActivity.mainActivity.fragment_round_info.updateInfo();
             }
         });
+
+        if(MainActivity.flask_full){
+            btn_buy_fill.setEnabled(false);
+        }
 
         return v;
     }

@@ -89,7 +89,7 @@ public class Fragment_round_info extends Fragment implements View.OnClickListene
 
             public void onClick(View v) {
 
-                if(MainActivity.flask_full){
+                if(MainActivity.flask_full && MainActivity.currentStep != -1){
                     img_flask.setImageResource(R.drawable.flask_empty);
                     MainActivity.flask_full = false;
                     String strToast = "Put the last white back in the bag";
