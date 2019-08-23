@@ -324,12 +324,15 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
     public void openDice(){
         deactivateButtons();
 
+        currentPoint += arrItemField.get(currentStep + 1).getPoints();
+
         if(currentStep + 1 < arrItemField.size()) {
             if (arrItemField.get(currentStep + 1).isRuby()) {
                 currentRub += 1;
-                mainActivity.fragment_round_info.updateInfo();
             }
         }
+
+        fragment_round_info.updateInfo();
 
         FragmentDice fragmentDice = new FragmentDice();
 
@@ -379,6 +382,26 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
                 .replace(R.id.container_board, fragmentB, "SHOW_BOARD_TAG")
                 .addToBackStack(null)
                 .commit();
+    }
+
+    //Fresh initialization of new round
+    public void startNewRound(){
+        arrBagBak = new ArrayList<>(arrBag);
+        currentRound += 1;
+        currentStep = MainActivity.currentStart;
+        Arrays.fill(MainActivity.board, -1);
+        currentWhite = 0;
+
+        isExploded = false;
+
+        //getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(0, R.anim.exit_to_button).remove(this).commit();
+        mainActivity.fragment_round_info.updateInfo();
+    }
+
+    //Put items back in bag
+    public void backToBag(){
+        arrBag = new ArrayList<>(MainActivity.arrBagBak);
+        img_current_item.setImageDrawable(null);
     }
 
     public void openBuyRefillAndStep(){

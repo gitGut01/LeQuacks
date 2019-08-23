@@ -89,7 +89,7 @@ public class Fragment_round_info extends Fragment implements View.OnClickListene
 
             public void onClick(View v) {
 
-                if(MainActivity.flask_full && MainActivity.currentStep != -1){
+                if(MainActivity.flask_full && MainActivity.currentWhite > 0){
                     img_flask.setImageResource(R.drawable.flask_empty);
                     MainActivity.flask_full = false;
                     String strToast = "Put the last white back in the bag";
@@ -115,11 +115,12 @@ public class Fragment_round_info extends Fragment implements View.OnClickListene
                     Toast.makeText(MainActivity.mainActivity, strToast,
                             Toast.LENGTH_SHORT).show();
 
+                    updateInfo();
+
                 }
 
             }
         });
-
 
 
         thisView = v;
@@ -184,7 +185,10 @@ public class Fragment_round_info extends Fragment implements View.OnClickListene
             if ((currentItemNr == 0 || currentItemNr == 1 || currentItemNr == 2) && !MainActivity.isExploded) {
                 cl_flask.setEnabled(true);
                 cl_flask.setAlpha(1);
-                }
+                }else{
+                    cl_flask.setEnabled(false);
+                    cl_flask.setAlpha(0.4f);
+            }
         }else {
             cl_flask.setEnabled(false);
             cl_flask.setAlpha(0.4f);

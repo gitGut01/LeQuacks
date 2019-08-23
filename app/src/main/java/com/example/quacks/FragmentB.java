@@ -54,13 +54,10 @@ public class FragmentB extends Fragment implements View.OnClickListener {
         View v = inflater.inflate(R.layout.fragment_b, container, false);
 
         mainActivity = MainActivity.mainActivity;
-        //MainActivity.arrDrawable.get(0);
         LinearLayout ll_close = v.findViewById(R.id.ll_close);
         ll_close.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                //getActivity().onBackPressed();
-                //getActivity().getSupportFragmentManager().popBackStack();
                 MainActivity.mainActivity.closeFragment();
             }
         });

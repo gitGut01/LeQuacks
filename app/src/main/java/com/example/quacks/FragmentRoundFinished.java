@@ -29,15 +29,21 @@ public class FragmentRoundFinished extends Fragment{
         btn_buy_items.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-
-
-                MainActivity.mainActivity.deactivateButtons();
-
                 MainActivity.mainActivity.closeFragment();
-
+                MainActivity.mainActivity.openBuyItem();
             }
         });
         Button btn_take_points = v.findViewById(R.id.btn_take_points);
+        btn_take_points.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                MainActivity.currentPoint += MainActivity.arrItemField.get(MainActivity.currentStep + 1).getPoints();
+                MainActivity.mainActivity.fragment_round_info.updateInfo();
+                MainActivity.mainActivity.backToBag();
+                MainActivity.mainActivity.startNewRound();
+                MainActivity.mainActivity.closeFragment();
+            }
+        });
         return v;
     }
 

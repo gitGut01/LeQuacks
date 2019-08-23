@@ -55,9 +55,7 @@ public class FragmentBuyItem extends Fragment implements BuyRecyclerViewAdapter.
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_buy_item, container, false);
-
-        MainActivity.arrBag = new ArrayList<>(MainActivity.arrBagBak);
-        MainActivity.mainActivity.img_current_item.setImageDrawable(null);
+        MainActivity.mainActivity.backToBag();
 
         // data to populate the RecyclerView with
         //ArrayList<Integer> arrPointBoard = new ArrayList<>();
