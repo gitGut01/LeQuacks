@@ -76,7 +76,7 @@ public class Fragment_round_info extends Fragment implements View.OnClickListene
                 if(getActivity().getSupportFragmentManager().findFragmentByTag("SHOW_BOARD_TAG")== null){
                     MainActivity.mainActivity.openFragmentBoard();
                 }else{
-                    getActivity().onBackPressed();
+                    MainActivity.mainActivity.closeFragment();
                 }
             }
 

@@ -322,6 +322,7 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
     }
 
     public void openDice(){
+        deactivateButtons();
 
         if(currentStep + 1 < arrItemField.size()) {
             if (arrItemField.get(currentStep + 1).isRuby()) {
@@ -412,14 +413,19 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
     @Override
     public void onBackPressed() {
 
-        activateButtons();
+        //activateButtons();
         /*
         if(getSupportFragmentManager().findFragmentByTag("ROUND_FINISHED")!= null){
             openBuyItem();
         }
         */
-        super.onBackPressed();
+        //super.onBackPressed();
 
+    }
+
+    public void closeFragment(){
+        activateButtons();
+        this.getSupportFragmentManager().popBackStack();
     }
 
 

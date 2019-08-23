@@ -80,7 +80,7 @@ public class FragmentPoints extends Fragment implements MyRecyclerViewAdapter.It
         FrameLayout fl_close_points = v.findViewById(R.id.fl_close_points);
         fl_close_points.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                getActivity().onBackPressed();
+                MainActivity.mainActivity.closeFragment();
             }
         });
 

@@ -57,7 +57,7 @@ public class FragmentBlueItem extends Fragment implements View.OnClickListener {
         constraintLayout.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                getActivity().onBackPressed();
+                MainActivity.mainActivity.closeFragment();
             }
         });
 
@@ -103,7 +103,7 @@ public class FragmentBlueItem extends Fragment implements View.OnClickListener {
 
                     MainActivity.arrBag.remove(i1);
 
-                    getActivity().onBackPressed();
+                    MainActivity.mainActivity.closeFragment();
                     MainActivity.colorRules(itemNr, getActivity());
                     //go back
 

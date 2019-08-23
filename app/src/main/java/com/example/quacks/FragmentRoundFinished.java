@@ -33,7 +33,7 @@ public class FragmentRoundFinished extends Fragment{
 
                 MainActivity.mainActivity.deactivateButtons();
 
-                getActivity().onBackPressed();
+                MainActivity.mainActivity.closeFragment();
 
             }
         });

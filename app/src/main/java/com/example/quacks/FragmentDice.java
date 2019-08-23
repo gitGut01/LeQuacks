@@ -71,7 +71,8 @@ public class FragmentDice extends Fragment{
                             break;
 
                         case 2:
-                            strDiceSide = "Chip moved";
+                            strDiceSide = "Start chip moved +1 up";
+                            MainActivity.currentStart += 1;
                             break;
 
                         case 3:
@@ -93,7 +94,7 @@ public class FragmentDice extends Fragment{
                     MainActivity.mainActivity.fragment_round_info.updateInfo();
                 }
 
-                getActivity().onBackPressed();
+                MainActivity.mainActivity.closeFragment();
                 MainActivity.mainActivity.openBuyItem();
 
             }

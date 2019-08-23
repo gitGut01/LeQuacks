@@ -59,7 +59,9 @@ public class FragmentB extends Fragment implements View.OnClickListener {
         ll_close.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                getActivity().onBackPressed();
+                //getActivity().onBackPressed();
+                //getActivity().getSupportFragmentManager().popBackStack();
+                MainActivity.mainActivity.closeFragment();
             }
         });
 
@@ -154,7 +156,6 @@ public class FragmentB extends Fragment implements View.OnClickListener {
                     imageView.setScaleX(0.6f);
                     imageView.setScaleY(0.6f);
                 }
-
 
             }else{
                 imageView.setImageResource(R.drawable.empty_field);

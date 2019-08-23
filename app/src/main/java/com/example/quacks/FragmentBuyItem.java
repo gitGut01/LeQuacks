@@ -107,7 +107,7 @@ public class FragmentBuyItem extends Fragment implements BuyRecyclerViewAdapter.
 
     private void openRubyStore(){
         MainActivity.currentCredits = 0;
-        getActivity().onBackPressed();
+        MainActivity.mainActivity.closeFragment();
         MainActivity.mainActivity.openRubyStore();
     }
 

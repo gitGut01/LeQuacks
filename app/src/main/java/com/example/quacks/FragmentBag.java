@@ -163,7 +163,7 @@ public class FragmentBag extends Fragment{
         cl_close.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                getActivity().onBackPressed();
+                MainActivity.mainActivity.closeFragment();
             }
         });
 
