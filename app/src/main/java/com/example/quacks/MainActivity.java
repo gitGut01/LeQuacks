@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.quacks.BuyItems.FragmentBuyItem;
 import com.example.quacks.BuyItems.FragmentBuyRefillAndStep;
 import com.example.quacks.BuyItems.FragmentDice;
+import com.example.quacks.BuyItems.FragmentRattails;
 import com.example.quacks.BuyItems.FragmentRoundFinished;
 import com.example.quacks.Points.FragmentPoints;
 import com.example.quacks.RoundInfo.FragmentBag;
@@ -87,12 +88,14 @@ public class MainActivity extends AppCompatActivity implements
 
     public static int currentStep = 0;
     public static int currentPoint = 0;
+    public static int opponentPoint = 0;
     public static int currentRub = 0;
     public static int currentWhite = 0;
     public static int currentCredits = 0;
     public static boolean flask_full = true;
     public static int currentRound = 1;
     public static int currentStart = 0;
+    public static int currentRattail = 0;
 
     public ImageView img_current_item;
 
@@ -387,6 +390,18 @@ public class MainActivity extends AppCompatActivity implements
         getSupportFragmentManager().beginTransaction()
                 .setCustomAnimations(R.anim.enter_from_right, 0, 0, R.anim.exit_to_right)
                 .replace(R.id.container_board, fragmentBoard, "SHOW_BOARD_TAG")
+                .addToBackStack(null)
+                .commit();
+    }
+
+
+    public void openFragmentRattail(){
+
+        FragmentRattails fragmentRattails = new FragmentRattails();
+
+        getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(R.anim.enter_from_right, 0, 0, R.anim.exit_to_button)
+                .replace(R.id.container_points, fragmentRattails, "RATTAILS")
                 .addToBackStack(null)
                 .commit();
     }

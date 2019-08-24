@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quacks.MainActivity;
-import com.example.quacks.Points.PointsRecyclerViewAdapter;
 import com.example.quacks.R;
 
 import java.util.ArrayList;
@@ -65,7 +64,7 @@ public class FragmentPoints extends Fragment implements PointsRecyclerViewAdapte
         }
 
         // set up the RecyclerView
-        RecyclerView recyclerView = v.findViewById(R.id.rvAnimals);
+        RecyclerView recyclerView = v.findViewById(R.id.rvPoints);
 
 
 

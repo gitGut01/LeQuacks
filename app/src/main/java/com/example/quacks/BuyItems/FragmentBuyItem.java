@@ -76,7 +76,7 @@ public class FragmentBuyItem extends Fragment implements BuyRecyclerViewAdapter.
 
 
         // set up the RecyclerView
-        RecyclerView recyclerView = v.findViewById(R.id.rvAnimals);
+        RecyclerView recyclerView = v.findViewById(R.id.rvPoints);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
         adapter = new BuyRecyclerViewAdapter(v.getContext(), arrColorSet, this);

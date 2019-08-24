@@ -64,7 +64,7 @@ public class FragmentChooseSet extends Fragment implements ChooseRecyclerViewAda
 
 
         // set up the RecyclerView
-        RecyclerView recyclerView = v.findViewById(R.id.rvAnimals);
+        RecyclerView recyclerView = v.findViewById(R.id.rvPoints);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
 

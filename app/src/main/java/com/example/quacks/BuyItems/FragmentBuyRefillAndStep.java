@@ -88,6 +88,8 @@ public class FragmentBuyRefillAndStep extends Fragment{
             public void onClick(View view) {
                 MainActivity.mainActivity.startNewRound();
                 MainActivity.mainActivity.closeFragment();
+
+                MainActivity.mainActivity.openFragmentRattail();
             }
         });
 

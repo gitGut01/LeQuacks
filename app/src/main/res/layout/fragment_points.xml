@@ -8,7 +8,7 @@
     android:gravity="center_horizontal">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvAnimals"
+        android:id="@+id/rvPoints"
         android:layout_width="100dp"
         android:layout_height="match_parent"
         android:background="#E0BEB7"
@@ -22,7 +22,7 @@
         android:layout_width="400dp"
         android:layout_height="match_parent"
         android:background="#6D494242"
-        app:layout_constraintStart_toEndOf="@+id/rvAnimals"
+        app:layout_constraintStart_toEndOf="@+id/rvPoints"
         tools:layout_editor_absoluteY="-16dp">
 
     </FrameLayout>
