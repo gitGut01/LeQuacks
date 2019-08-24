@@ -1,4 +1,4 @@
-package com.example.quacks;
+package com.example.quacks.RoundInfo;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -16,6 +16,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.quacks.ItemField;
+import com.example.quacks.MainActivity;
+import com.example.quacks.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;

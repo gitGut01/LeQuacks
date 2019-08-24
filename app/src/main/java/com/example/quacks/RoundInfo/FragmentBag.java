@@ -1,4 +1,4 @@
-package com.example.quacks;
+package com.example.quacks.RoundInfo;
 
 import android.content.Context;
 import android.os.Build;
@@ -21,6 +21,9 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.quacks.MainActivity;
+import com.example.quacks.R;
 
 import java.util.ArrayList;
 

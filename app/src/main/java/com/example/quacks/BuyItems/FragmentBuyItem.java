@@ -1,7 +1,6 @@
-package com.example.quacks;
+package com.example.quacks.BuyItems;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +13,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.quacks.ColorSet;
+import com.example.quacks.MainActivity;
+import com.example.quacks.R;
 
 import java.util.ArrayList;
 

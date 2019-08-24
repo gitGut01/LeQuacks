@@ -1,4 +1,4 @@
-package com.example.quacks;
+package com.example.quacks.BuyItems;
 
 import android.content.Context;
 import android.media.Image;
@@ -15,6 +15,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+
+import com.example.quacks.MainActivity;
+import com.example.quacks.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;

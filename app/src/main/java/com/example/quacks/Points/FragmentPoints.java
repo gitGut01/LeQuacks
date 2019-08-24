@@ -1,11 +1,10 @@
-package com.example.quacks;
+package com.example.quacks.Points;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -16,10 +15,14 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.quacks.MainActivity;
+import com.example.quacks.Points.PointsRecyclerViewAdapter;
+import com.example.quacks.R;
+
 import java.util.ArrayList;
 
 
-public class FragmentPoints extends Fragment implements MyRecyclerViewAdapter.ItemClickListener{
+public class FragmentPoints extends Fragment implements PointsRecyclerViewAdapter.ItemClickListener{
     private FragmentPointsListener listener;
     private EditText editText;
     private Button buttonOk;
@@ -46,7 +49,7 @@ public class FragmentPoints extends Fragment implements MyRecyclerViewAdapter.It
             -1, 41, 42, -1, 43, 44, -1, 45, 46, -1, 47, 48, -1, 49, 50
     };
 
-    MyRecyclerViewAdapter adapter;
+    PointsRecyclerViewAdapter adapter;
 
     @Nullable
     @Override
@@ -68,7 +71,7 @@ public class FragmentPoints extends Fragment implements MyRecyclerViewAdapter.It
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
-        adapter = new MyRecyclerViewAdapter(v.getContext(), arrPointBoard);
+        adapter = new PointsRecyclerViewAdapter(v.getContext(), arrPointBoard);
         adapter.setClickListener(this);
 
         recyclerView.setAdapter(adapter);

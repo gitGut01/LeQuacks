@@ -1,8 +1,6 @@
-package com.example.quacks;
+package com.example.quacks.BuyItems;
 
 import android.content.Context;
-import android.database.Cursor;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +12,10 @@ import android.widget.Toast;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import com.example.quacks.ColorSet;
+import com.example.quacks.MainActivity;
+import com.example.quacks.R;
+
 import java.util.List;
 
 public class BuyRecyclerViewAdapter extends RecyclerView.Adapter<BuyRecyclerViewAdapter.ViewHolder> {

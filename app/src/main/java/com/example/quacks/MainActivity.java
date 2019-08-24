@@ -13,11 +13,20 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
+import com.example.quacks.BuyItems.FragmentBuyItem;
+import com.example.quacks.BuyItems.FragmentBuyRefillAndStep;
+import com.example.quacks.BuyItems.FragmentDice;
+import com.example.quacks.BuyItems.FragmentRoundFinished;
+import com.example.quacks.Points.FragmentPoints;
+import com.example.quacks.RoundInfo.FragmentBag;
+import com.example.quacks.RoundInfo.FragmentBoard;
+import com.example.quacks.RoundInfo.Fragment_round_info;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity implements FragmentA.FragmentAListener,
+public class MainActivity extends AppCompatActivity implements
         FragmentBoard.FragmentBListener, FragmentBlueItem.FragmentBlueItemListener,
         FragmentPoints.FragmentPointsListener, Fragment_round_info.Fragment_round_info_Listener,
         FragmentBuyItem.FragmentBuyListener {
@@ -27,8 +36,6 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
     public static String PACKAGE_NAME;
     public static Resources MAIN_RESOURCES;
 
-
-    private FragmentA fragmentA;
 
     private FragmentBuyItem fragmentBuyItem;
     private FragmentRoundFinished fragmentRoundFinished;

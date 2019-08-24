@@ -1,4 +1,4 @@
-package com.example.quacks;
+package com.example.quacks.BuyItems;
 
 import android.content.Context;
 import android.media.Image;
@@ -19,6 +19,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quacks.ChooseSet.FragmentChooseSet;
+import com.example.quacks.MainActivity;
+import com.example.quacks.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;

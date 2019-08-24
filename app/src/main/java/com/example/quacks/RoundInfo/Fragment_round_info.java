@@ -1,4 +1,4 @@
-package com.example.quacks;
+package com.example.quacks.RoundInfo;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -15,6 +15,10 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+
+import com.example.quacks.ItemField;
+import com.example.quacks.MainActivity;
+import com.example.quacks.R;
 
 import org.w3c.dom.Text;
 

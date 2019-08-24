@@ -1,4 +1,4 @@
-package com.example.quacks;
+package com.example.quacks.Points;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,16 +9,19 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.quacks.MainActivity;
+import com.example.quacks.R;
+
 import java.util.List;
 
-public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
+public class PointsRecyclerViewAdapter extends RecyclerView.Adapter<PointsRecyclerViewAdapter.ViewHolder> {
 
     private List<Integer> mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    MyRecyclerViewAdapter(Context context, List<Integer> data) {
+    PointsRecyclerViewAdapter(Context context, List<Integer> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }

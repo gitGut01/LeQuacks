@@ -1,4 +1,4 @@
-package com.example.quacks;
+package com.example.quacks.BuyItems;
 
 import android.content.Context;
 import android.os.Build;
@@ -15,6 +15,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import com.example.quacks.ChooseSet.FragmentChooseSet;
+import com.example.quacks.MainActivity;
+import com.example.quacks.R;
 
 public class FragmentRoundFinished extends Fragment{
 

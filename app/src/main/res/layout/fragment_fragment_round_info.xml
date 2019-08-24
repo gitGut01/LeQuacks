@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="70dp"
     android:background="#7641D6"
-    tools:context=".Fragment_round_info">
+    tools:context=".RoundInfo.Fragment_round_info">
 
     <LinearLayout
         android:layout_width="match_parent"
