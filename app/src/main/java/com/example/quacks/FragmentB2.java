@@ -67,7 +67,7 @@ public class FragmentB2 extends Fragment implements View.OnClickListener {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_b, container, false);
+        View v = inflater.inflate(R.layout.fragment_board, container, false);
 
         //MainActivity.arrDrawable.get(0);
         LinearLayout ll_close = v.findViewById(R.id.ll_close);
@@ -85,7 +85,7 @@ public class FragmentB2 extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        //Array of all ImageViews in FragmentB
+        //Array of all ImageViews in FragmentBoard
 
         arrIvInB = new ArrayList<>(Arrays.asList(
                 (ImageView) getView().findViewById(R.id.e_00), (ImageView) getView().findViewById(R.id.e_01),

@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements FragmentA.FragmentAListener,
-        FragmentB.FragmentBListener, FragmentBlueItem.FragmentBlueItemListener,
+        FragmentBoard.FragmentBListener, FragmentBlueItem.FragmentBlueItemListener,
         FragmentPoints.FragmentPointsListener, Fragment_round_info.Fragment_round_info_Listener,
         FragmentBuyItem.FragmentBuyListener {
 
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
 
     private FragmentBuyItem fragmentBuyItem;
     private FragmentRoundFinished fragmentRoundFinished;
-    private FragmentB fragmentB;
+    private FragmentBoard fragmentBoard;
     public Fragment_round_info fragment_round_info;
 
     private Button btn_next;
@@ -234,7 +234,7 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
 
                     Log.d("Game", colors.get(itemNr) + "      " + itemNr + "       "   + currentStep);
 
-                    //fragmentB.updateBoard(board);
+                    //fragmentBoard.updateBoard(board);
 
                     fragment_round_info.updateInfo();
 
@@ -375,11 +375,11 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
 
     public void openFragmentBoard(){
 
-        FragmentB fragmentB = new FragmentB();
+        FragmentBoard fragmentBoard = new FragmentBoard();
 
         getSupportFragmentManager().beginTransaction()
                 .setCustomAnimations(R.anim.enter_from_right, 0, 0, R.anim.exit_to_right)
-                .replace(R.id.container_board, fragmentB, "SHOW_BOARD_TAG")
+                .replace(R.id.container_board, fragmentBoard, "SHOW_BOARD_TAG")
                 .addToBackStack(null)
                 .commit();
     }

@@ -2,16 +2,12 @@ package com.example.quacks;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -25,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 
-public class FragmentB extends Fragment implements View.OnClickListener {
+public class FragmentBoard extends Fragment implements View.OnClickListener {
     private FragmentBListener listener;
 
 
@@ -51,7 +47,7 @@ public class FragmentB extends Fragment implements View.OnClickListener {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_b, container, false);
+        View v = inflater.inflate(R.layout.fragment_board, container, false);
 
         mainActivity = MainActivity.mainActivity;
         LinearLayout ll_close = v.findViewById(R.id.ll_close);
@@ -69,7 +65,7 @@ public class FragmentB extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        //Array of all ImageViews in FragmentB
+        //Array of all ImageViews in FragmentBoard
 
         arrIvInB = new ArrayList<>(Arrays.asList(
                 (FrameLayout) getView().findViewById(R.id.fl_00), (FrameLayout) getView().findViewById(R.id.fl_01),
