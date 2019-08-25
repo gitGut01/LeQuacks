@@ -42,8 +42,9 @@ public class FragmentRoundFinished extends Fragment{
                 MainActivity.currentPoint += MainActivity.arrItemField.get(MainActivity.currentStep + 1).getPoints();
                 MainActivity.mainActivity.fragment_round_info.updateInfo();
                 MainActivity.mainActivity.backToBag();
-                MainActivity.mainActivity.startNewRound();
                 MainActivity.mainActivity.closeFragment();
+
+                MainActivity.mainActivity.openRubyStore();
             }
         });
         return v;

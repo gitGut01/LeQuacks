@@ -2,6 +2,7 @@ package com.example.quacks.RoundInfo;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import com.example.quacks.ItemField;
@@ -66,68 +68,89 @@ public class FragmentBoard extends Fragment implements View.OnClickListener {
         return v;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        //Array of all ImageViews in FragmentBoard
 
+        //Array of all the FrameLayouts in FragmentBoard
         arrIvInB = new ArrayList<>(Arrays.asList(
-                (FrameLayout) getView().findViewById(R.id.fl_00), (FrameLayout) getView().findViewById(R.id.fl_01),
-                (FrameLayout) getView().findViewById(R.id.fl_02), (FrameLayout) getView().findViewById(R.id.fl_03),
+                getView().findViewById(R.id.fl_00), getView().findViewById(R.id.fl_01),
+                getView().findViewById(R.id.fl_02), getView().findViewById(R.id.fl_03),
 
-                (FrameLayout) getView().findViewById(R.id.fl_04), (FrameLayout) getView().findViewById(R.id.fl_05),
-                (FrameLayout) getView().findViewById(R.id.fl_06), (FrameLayout) getView().findViewById(R.id.fl_07),
+                getView().findViewById(R.id.fl_04), getView().findViewById(R.id.fl_05),
+                getView().findViewById(R.id.fl_06), getView().findViewById(R.id.fl_07),
 
-                (FrameLayout) getView().findViewById(R.id.fl_08), (FrameLayout) getView().findViewById(R.id.fl_09),
-                (FrameLayout) getView().findViewById(R.id.fl_10), (FrameLayout) getView().findViewById(R.id.fl_11),
+                getView().findViewById(R.id.fl_08), getView().findViewById(R.id.fl_09),
+                getView().findViewById(R.id.fl_10), getView().findViewById(R.id.fl_11),
 
-                (FrameLayout) getView().findViewById(R.id.fl_12), (FrameLayout) getView().findViewById(R.id.fl_13),
-                (FrameLayout) getView().findViewById(R.id.fl_14), (FrameLayout) getView().findViewById(R.id.fl_15),
+                getView().findViewById(R.id.fl_12), getView().findViewById(R.id.fl_13),
+                getView().findViewById(R.id.fl_14), getView().findViewById(R.id.fl_15),
 
-                (FrameLayout) getView().findViewById(R.id.fl_15_), (FrameLayout) getView().findViewById(R.id.fl_16),
-                (FrameLayout) getView().findViewById(R.id.fl_16_), (FrameLayout) getView().findViewById(R.id.fl_17),
+                getView().findViewById(R.id.fl_15_), getView().findViewById(R.id.fl_16),
+                getView().findViewById(R.id.fl_16_), getView().findViewById(R.id.fl_17),
 
-                (FrameLayout) getView().findViewById(R.id.fl_17_), (FrameLayout) getView().findViewById(R.id.fl_18),
-                (FrameLayout) getView().findViewById(R.id.fl_18_), (FrameLayout) getView().findViewById(R.id.fl_19),
+                getView().findViewById(R.id.fl_17_), getView().findViewById(R.id.fl_18),
+                getView().findViewById(R.id.fl_18_), getView().findViewById(R.id.fl_19),
 
-                (FrameLayout) getView().findViewById(R.id.fl_19_), (FrameLayout) getView().findViewById(R.id.fl_20),
-                (FrameLayout) getView().findViewById(R.id.fl_20_), (FrameLayout) getView().findViewById(R.id.fl_21),
+                getView().findViewById(R.id.fl_19_), getView().findViewById(R.id.fl_20),
+                getView().findViewById(R.id.fl_20_), getView().findViewById(R.id.fl_21),
 
-                (FrameLayout) getView().findViewById(R.id.fl_21_), (FrameLayout) getView().findViewById(R.id.fl_22),
-                (FrameLayout) getView().findViewById(R.id.fl_22_), (FrameLayout) getView().findViewById(R.id.fl_23),
+                getView().findViewById(R.id.fl_21_), getView().findViewById(R.id.fl_22),
+                getView().findViewById(R.id.fl_22_), getView().findViewById(R.id.fl_23),
 
-                (FrameLayout) getView().findViewById(R.id.fl_23_), (FrameLayout) getView().findViewById(R.id.fl_24),
-                (FrameLayout) getView().findViewById(R.id.fl_24_), (FrameLayout) getView().findViewById(R.id.fl_25),
+                getView().findViewById(R.id.fl_23_), getView().findViewById(R.id.fl_24),
+                getView().findViewById(R.id.fl_24_), getView().findViewById(R.id.fl_25),
 
-                (FrameLayout) getView().findViewById(R.id.fl_25_), (FrameLayout) getView().findViewById(R.id.fl_26),
-                (FrameLayout) getView().findViewById(R.id.fl_26_), (FrameLayout) getView().findViewById(R.id.fl_27),
+                getView().findViewById(R.id.fl_25_), getView().findViewById(R.id.fl_26),
+                getView().findViewById(R.id.fl_26_), getView().findViewById(R.id.fl_27),
 
-                (FrameLayout) getView().findViewById(R.id.fl_27_), (FrameLayout) getView().findViewById(R.id.fl_28),
-                (FrameLayout) getView().findViewById(R.id.fl_28_), (FrameLayout) getView().findViewById(R.id.fl_29),
+                getView().findViewById(R.id.fl_27_), getView().findViewById(R.id.fl_28),
+                getView().findViewById(R.id.fl_28_), getView().findViewById(R.id.fl_29),
 
-                (FrameLayout) getView().findViewById(R.id.fl_29_), (FrameLayout) getView().findViewById(R.id.fl_30),
-                (FrameLayout) getView().findViewById(R.id.fl_30_), (FrameLayout) getView().findViewById(R.id.fl_31),
+                getView().findViewById(R.id.fl_29_), getView().findViewById(R.id.fl_30),
+                getView().findViewById(R.id.fl_30_), getView().findViewById(R.id.fl_31),
 
-                (FrameLayout) getView().findViewById(R.id.fl_31_), (FrameLayout) getView().findViewById(R.id.fl_32),
-                (FrameLayout) getView().findViewById(R.id.fl_32_), (FrameLayout) getView().findViewById(R.id.fl_33),
+                getView().findViewById(R.id.fl_31_), getView().findViewById(R.id.fl_32),
+                getView().findViewById(R.id.fl_32_), getView().findViewById(R.id.fl_33),
 
-                (FrameLayout) getView().findViewById(R.id.fl_33_), (FrameLayout) getView().findViewById(R.id.fl_35)
+                getView().findViewById(R.id.fl_33_), getView().findViewById(R.id.fl_35)
         ));
 
-        int[] board = MainActivity.board;
 
+        populateBoard();
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public void populateBoard(){
+
+        arrIvInB.forEach(item -> item.removeAllViews());
+
+        //Add the start chip
         ImageView imgStart = new ImageView(mainActivity);
         imgStart.setImageResource(R.drawable.start_step);
         imgStart.setScaleX(0.8f);
         imgStart.setScaleY(0.8f);
         arrIvInB.get(MainActivity.currentStart).addView(imgStart);
 
+        //Add the rat chip
+        if(MainActivity.currentRattail > 0) {
+            ImageView imgRat = new ImageView(mainActivity);
+            imgRat.setImageResource(R.drawable.rat);
+            imgRat.setScaleX(0.8f);
+            imgRat.setScaleY(0.8f);
+            arrIvInB.get(MainActivity.currentStart + MainActivity.currentRattail).addView(imgRat);
+        }
 
+        //Add exploded
         if(MainActivity.isExploded){
             ImageView imgExp = new ImageView(mainActivity);
             imgExp.setImageResource(R.drawable.explosion);
             arrIvInB.get(MainActivity.currentStep).addView(imgExp);
         }
+
+        int[] board = MainActivity.board;
 
         for(int i = 0; i < board.length; i++){
             ImageView imageView = new ImageView(mainActivity);

@@ -40,10 +40,10 @@ public class FragmentRattails extends Fragment implements RattailsRecyclerViewAd
         int indexYou = pointBoard.indexOf(MainActivity.currentPoint);
 
 
-        MainActivity.currentRattail = 0;
-
         if(indexOpponent > indexYou){
             MainActivity.currentRattail = Collections.frequency(pointBoard.subList(indexYou, indexOpponent), -1);
+        }else{
+            MainActivity.currentRattail = 0;
         }
 
         tv_rattails.setText(MainActivity.currentRattail + "");
@@ -99,6 +99,7 @@ public class FragmentRattails extends Fragment implements RattailsRecyclerViewAd
         btn_continue.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
+                MainActivity.mainActivity.startNewRound();
                 MainActivity.mainActivity.closeFragment();
             }
         });

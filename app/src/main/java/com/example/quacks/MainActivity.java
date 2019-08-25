@@ -18,6 +18,7 @@ import com.example.quacks.BuyItems.FragmentBuyRefillAndStep;
 import com.example.quacks.BuyItems.FragmentDice;
 import com.example.quacks.BuyItems.FragmentRattails;
 import com.example.quacks.BuyItems.FragmentRoundFinished;
+import com.example.quacks.ChooseSet.FragmentChooseSet;
 import com.example.quacks.Points.FragmentPoints;
 import com.example.quacks.RoundInfo.FragmentBag;
 import com.example.quacks.RoundInfo.FragmentBoard;
@@ -40,11 +41,12 @@ public class MainActivity extends AppCompatActivity implements
 
     private FragmentBuyItem fragmentBuyItem;
     private FragmentRoundFinished fragmentRoundFinished;
-    private FragmentBoard fragmentBoard;
+    public FragmentBoard fragmentBoard;
     public Fragment_round_info fragment_round_info;
 
     private Button btn_next;
     private Button btn_back_in_bag;
+    private Button btn_change_rules;
 
     private boolean boShowFrag = false;
 
@@ -264,6 +266,17 @@ public class MainActivity extends AppCompatActivity implements
             }
         });
 
+        //Put the item back in the bag
+        btn_change_rules = (Button) findViewById(R.id.btn_change_rules);
+        btn_change_rules.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                openChangeRule();
+            }
+        });
+
+
+
 
     }
 
@@ -353,6 +366,16 @@ public class MainActivity extends AppCompatActivity implements
                 .commit();
     }
 
+    public void openChangeRule(){
+        FragmentChooseSet fragmentChooseSet = new FragmentChooseSet();
+
+        getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(R.anim.enter_from_button, 0, 0, R.anim.exit_to_button)
+                .replace(R.id.container_points, fragmentChooseSet, "RULES")
+                .addToBackStack(null)
+                .commit();
+    }
+
     public void openRubyStore(){
         FragmentBuyRefillAndStep fragmentBuyRefillAndStep = new FragmentBuyRefillAndStep();
 
@@ -385,7 +408,7 @@ public class MainActivity extends AppCompatActivity implements
 
     public void openFragmentBoard(){
 
-        FragmentBoard fragmentBoard = new FragmentBoard();
+        fragmentBoard = new FragmentBoard();
 
         getSupportFragmentManager().beginTransaction()
                 .setCustomAnimations(R.anim.enter_from_right, 0, 0, R.anim.exit_to_right)
@@ -410,8 +433,8 @@ public class MainActivity extends AppCompatActivity implements
     public void startNewRound(){
         arrBagBak = new ArrayList<>(arrBag);
         currentRound += 1;
-        currentStep = MainActivity.currentStart;
-        Arrays.fill(MainActivity.board, -1);
+        currentStep = currentStart + currentRattail;
+        Arrays.fill(board, -1);
         currentWhite = 0;
 
         isExploded = false;

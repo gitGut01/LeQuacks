@@ -104,13 +104,17 @@ public class Fragment_round_info extends Fragment implements View.OnClickListene
 
                     MainActivity.board[MainActivity.currentStep] = -1;      //Clear the board at the step
 
+
                     //Set back the step values after item is put back in bag
                     if(currentStepItemNr == 0){
                         MainActivity.currentStep -= 1;
+                        MainActivity.currentWhite -= 1;
                     }else if(currentStepItemNr == 1){
                         MainActivity.currentStep -= 2;
+                        MainActivity.currentWhite -= 2;
                     }else if(currentStepItemNr == 2){
                         MainActivity.currentStep -= 3;
+                        MainActivity.currentWhite -= 3;
                     }
 
 
@@ -120,6 +124,7 @@ public class Fragment_round_info extends Fragment implements View.OnClickListene
                             Toast.LENGTH_SHORT).show();
 
                     updateInfo();
+                    MainActivity.mainActivity.fragmentBoard.populateBoard();
 
                 }
 

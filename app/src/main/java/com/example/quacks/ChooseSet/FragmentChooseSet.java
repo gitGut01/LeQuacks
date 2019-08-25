@@ -125,7 +125,6 @@ public class FragmentChooseSet extends Fragment implements ChooseRecyclerViewAda
 
 
 
-
                 adapter = new ChooseRecyclerViewAdapter(v.getContext(), arrColorInfoAb);
                 adapter.setClickListener(icl_this);
                 recyclerView.setAdapter(adapter);

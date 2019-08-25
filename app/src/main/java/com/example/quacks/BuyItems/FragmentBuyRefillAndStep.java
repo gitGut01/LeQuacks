@@ -86,9 +86,7 @@ public class FragmentBuyRefillAndStep extends Fragment{
         btn_next_round = v.findViewById(R.id.btn_next_round);
         btn_next_round.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                MainActivity.mainActivity.startNewRound();
                 MainActivity.mainActivity.closeFragment();
-
                 MainActivity.mainActivity.openFragmentRattail();
             }
         });
