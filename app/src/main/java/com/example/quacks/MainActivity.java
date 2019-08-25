@@ -266,10 +266,9 @@ public class MainActivity extends AppCompatActivity implements
             }
         });
 
-        //Put the item back in the bag
+        //Change the game rules
         btn_change_rules = (Button) findViewById(R.id.btn_change_rules);
         btn_change_rules.setOnClickListener(new View.OnClickListener() {
-
             public void onClick(View v) {
                 openChangeRule();
             }
