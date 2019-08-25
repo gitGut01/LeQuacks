@@ -89,6 +89,8 @@ public class MainActivity extends AppCompatActivity implements
     public static int[] board = new int[54];
 
     public static int currentStep = 0;
+    public static int prevStep = 0;
+
     public static int currentPoint = 0;
     public static int opponentPoint = 0;
     public static int currentRub = 0;
@@ -106,7 +108,12 @@ public class MainActivity extends AppCompatActivity implements
 
     public static MainActivity mainActivity;
 
-    public static ArrayList<Integer> arrBag = new ArrayList<>(Arrays.asList(0, 0, 0, 0, 1, 1, 2, 3, 4));
+    //public static ArrayList<Integer> arrBag = new ArrayList<>(Arrays.asList(0, 0, 0, 0, 1, 1, 2, 3, 4));
+    public static ArrayList<Integer> arrBag = new ArrayList<>(Arrays.asList(0, 0, 0, 0, 1, 1, 14, 15, 16, 14, 14, 14)); //Yellow
+    //public static ArrayList<Integer> arrBag = new ArrayList<>(Arrays.asList(10, 10, 10, 10, 10, 10, 10, 10, 10)); //Blue
+    //public static ArrayList<Integer> arrBag = new ArrayList<>(Arrays.asList(0, 0, 0, 0, 1, 1, 7, 8, 9, 7, 7, 9, 9, 9)); //red
+
+
 
     public static ArrayList<Integer> arrBagBak = new ArrayList<>(arrBag);
 
@@ -284,6 +291,12 @@ public class MainActivity extends AppCompatActivity implements
         //arrItemField.get(currentStep + 1).getCredits();
 
 
+        //Next step
+        prevStep = currentStep;
+        currentStep += stepValue[itemNr];
+
+
+        //If item is WHITE 1, 2, 3
         if(itemNr == 0 || itemNr == 1 || itemNr == 2){
             currentWhite += (itemNr + 1);
 
@@ -294,8 +307,8 @@ public class MainActivity extends AppCompatActivity implements
                 mainActivity.openRoundFinished();
 
             }
-
         }
+
         //If item is Blue 1, 2, 4
         if(itemNr == 10 || itemNr == 11 || itemNr == 12) {
             ColorSet.Blue(c, itemNr);
@@ -306,14 +319,14 @@ public class MainActivity extends AppCompatActivity implements
             ColorSet.Red(c);
 
 
-            //If item is Yellow 1, 2 or 4
+        //If item is Yellow 1, 2 or 4
         }else if(itemNr == 14 || itemNr == 15 || itemNr == 16){
             ColorSet.Yellow(c);
 
         }
 
-        //Next step
-        currentStep += stepValue[itemNr];
+
+        //Update the board state
         board[currentStep] = itemNr;
         currentCredits = arrItemField.get(currentStep + 1).getCredits();
 

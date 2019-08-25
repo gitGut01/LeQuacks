@@ -54,15 +54,15 @@ public class Yellow_set_1_info extends ColorInfoAb {
 
 
     public static void doTheRule(Context c){
-        if(MainActivity.currentStep > -1) {
+        if(MainActivity.prevStep > -1) {
 
 
-            int itemNr = MainActivity.board[MainActivity.currentStep];
+            int itemNr = MainActivity.board[MainActivity.prevStep];
 
             if (itemNr == 0 || itemNr == 1 || itemNr == 2) {
 
                 MainActivity.arrBag.add(itemNr);
-                MainActivity.board[MainActivity.currentStep] = -1;
+                MainActivity.board[MainActivity.prevStep] = -1;
 
                 Toast.makeText(c, Arrays.toString(MainActivity.arrBag.toArray()),
                         Toast.LENGTH_SHORT).show();

@@ -52,8 +52,9 @@ public class Blue_set_2_info extends ColorInfoAb{
 
     public static void doTheRule(){
         if(MainActivity.arrItemField.get(MainActivity.currentStep).isRuby()){
-            MainActivity.currentPoint += 1;
+            MainActivity.currentRub += 1;
         }
+
     }
 
 }

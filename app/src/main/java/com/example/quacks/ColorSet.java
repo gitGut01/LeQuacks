@@ -12,6 +12,7 @@ import com.example.quacks.ColorInfo.Green_set_1_info;
 import com.example.quacks.ColorInfo.Orange_set_info;
 import com.example.quacks.ColorInfo.Purple_set_1_info;
 import com.example.quacks.ColorInfo.Red_set_1_info;
+import com.example.quacks.ColorInfo.Red_set_3_info;
 import com.example.quacks.ColorInfo.Yellow_set_1_info;
 
 import java.util.ArrayList;
@@ -224,7 +225,7 @@ public class ColorSet {
                 Blue_set_2_info.doTheRule();
                 break;
             case 3:
-                Blue_set_2_info.doTheRule();
+                Blue_set_3_info.doTheRule();
                 break;
         }
 
@@ -233,8 +234,12 @@ public class ColorSet {
 
     public static void Red(Context c){
 
-        if(set_to_play[1] == 1){
-            Red_set_1_info.doTheRule(c);
+        switch(set_to_play[1]){
+            case 1:
+                Red_set_1_info.doTheRule(c);
+            case 3:
+                Red_set_3_info.doTheRule(c);
+
         }
 
     }

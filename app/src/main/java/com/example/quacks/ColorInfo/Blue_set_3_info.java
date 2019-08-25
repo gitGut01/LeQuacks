@@ -28,7 +28,8 @@ public class Blue_set_3_info extends ColorInfoAb{
     @Override
     public String getInfo() {
         return "If you place a blue chip on a ruby space,\n" +
-                "you immediately receive 1 ruby";
+                "IMMEDIATELY receive 1, 2 or 4 points, \n" +
+                "depending on the blue chips value";
     }
 
     @Override
@@ -54,7 +55,15 @@ public class Blue_set_3_info extends ColorInfoAb{
 
     public static void doTheRule(){
         if(MainActivity.arrItemField.get(MainActivity.currentStep).isRuby()){
-            MainActivity.currentRub += 1;
+
+            int itemNr = MainActivity.mainActivity.itemNr;
+            if(itemNr == 10){
+                MainActivity.currentPoint += 1;
+            }else if(itemNr == 11){
+                MainActivity.currentPoint += 2;
+            }else if(itemNr == 12){
+                MainActivity.currentPoint += 4;
+            }
         }
     }
 }
