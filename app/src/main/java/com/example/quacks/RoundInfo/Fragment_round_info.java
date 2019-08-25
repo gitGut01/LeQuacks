@@ -160,6 +160,9 @@ public class Fragment_round_info extends Fragment implements View.OnClickListene
         TextView tv_white = thisView.findViewById(R.id.tv_white);
         tv_white.setText(MainActivity.currentWhite + " x");
 
+        TextView tv_white2 = thisView.findViewById(R.id.tv_white2);
+        tv_white2.setText("/ " + MainActivity.currentExplotionValue);
+
         ImageView img_explotion = thisView.findViewById(R.id.img_explotion);
 
         FrameLayout fl_size = thisView.findViewById(R.id.fl_size);

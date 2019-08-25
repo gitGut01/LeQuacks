@@ -6,42 +6,45 @@ import android.widget.Toast;
 
 import com.example.quacks.MainActivity;
 
-public class Red_set_4_info extends ColorInfoAb{
+import java.util.Arrays;
+
+public class Yellow_set_2_info extends ColorInfoAb {
 
     @Override
     public String getHeader() {
-        return "Red (Set 4)";
+        return "Yellow (Set 2)";
     }
 
     @Override
     public int getSet() {
-        return 4;
+        return 2;
     }
 
     @Override
     public int colorNr() {
-        return 1; //Red
+        return 2; //Yellow
     }
 
     @Override
     public String getInfo() {
-        return "As soon as at least 1 red chip is on the board\n," +
-                "All following 1 - white chips this round will move +1 extra space";
+        return "The next chip that is placed is moved ahead,\n" +
+                "twice as far as its number indicates";
     }
 
     @Override
     public int[] getPrice() {
-        return new int[]{6, 10, 16};
+        return new int[]{8, 12, 18};
     }
 
     @Override
     public int[] getArrDrawable() {
-        return new int[]{7, 8, 9};
+        return new int[]{14, 15, 16};
     }
 
     @Override
     public int getBg() {
-        return Color.rgb(255, 153, 153);
+        //Yellow
+        return Color.rgb(255, 255, 153);
     }
 
     @Override
@@ -51,12 +54,9 @@ public class Red_set_4_info extends ColorInfoAb{
 
 
     public static void doTheRule(Context c){
+        MainActivity.yellow_set_2_activated = true;
 
-        if(!MainActivity.red_set_4_activated){
-            Toast.makeText(c, "All 1-white go +1 extra step this round",
-                    Toast.LENGTH_SHORT).show();
-
-            MainActivity.red_set_4_activated = true;
-        }
+        Toast.makeText(c, "The value of the next placed chip is doubled",
+                Toast.LENGTH_SHORT).show();
     }
 }

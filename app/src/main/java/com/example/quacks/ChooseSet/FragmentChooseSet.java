@@ -25,8 +25,13 @@ import com.example.quacks.ColorInfo.ColorInfoAb;
 import com.example.quacks.ColorInfo.Green_set_1_info;
 import com.example.quacks.ColorInfo.Purple_set_1_info;
 import com.example.quacks.ColorInfo.Red_set_1_info;
+import com.example.quacks.ColorInfo.Red_set_2_info;
 import com.example.quacks.ColorInfo.Red_set_3_info;
+import com.example.quacks.ColorInfo.Red_set_4_info;
 import com.example.quacks.ColorInfo.Yellow_set_1_info;
+import com.example.quacks.ColorInfo.Yellow_set_2_info;
+import com.example.quacks.ColorInfo.Yellow_set_3_info;
+import com.example.quacks.ColorInfo.Yellow_set_4_info;
 import com.example.quacks.MainActivity;
 import com.example.quacks.R;
 
@@ -136,8 +141,9 @@ public class FragmentChooseSet extends Fragment implements ChooseRecyclerViewAda
 
                 }else if(i == 1){
                     arrColorInfoAb.add(new Red_set_1_info());
-
+                    arrColorInfoAb.add(new Red_set_2_info());
                     arrColorInfoAb.add(new Red_set_3_info());
+                    arrColorInfoAb.add(new Red_set_4_info());
 
                     recyclerView.scrollToPosition(MainActivity.set_to_play[1] - 1);
 
@@ -152,6 +158,9 @@ public class FragmentChooseSet extends Fragment implements ChooseRecyclerViewAda
 
                 }else if(i == 3){
                     arrColorInfoAb.add(new Yellow_set_1_info());
+                    arrColorInfoAb.add(new Yellow_set_2_info());
+                    arrColorInfoAb.add(new Yellow_set_3_info());
+                    arrColorInfoAb.add(new Yellow_set_4_info());
 
                     recyclerView.scrollToPosition(MainActivity.set_to_play[2] - 1);
 

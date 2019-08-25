@@ -6,16 +6,16 @@ import android.widget.Toast;
 
 import com.example.quacks.MainActivity;
 
-public class Red_set_4_info extends ColorInfoAb{
+public class Red_set_2_info extends ColorInfoAb{
 
     @Override
     public String getHeader() {
-        return "Red (Set 4)";
+        return "Red (Set 2)";
     }
 
     @Override
     public int getSet() {
-        return 4;
+        return 2;
     }
 
     @Override
@@ -25,8 +25,7 @@ public class Red_set_4_info extends ColorInfoAb{
 
     @Override
     public String getInfo() {
-        return "As soon as at least 1 red chip is on the board\n," +
-                "All following 1 - white chips this round will move +1 extra space";
+        return "";
     }
 
     @Override
@@ -52,11 +51,5 @@ public class Red_set_4_info extends ColorInfoAb{
 
     public static void doTheRule(Context c){
 
-        if(!MainActivity.red_set_4_activated){
-            Toast.makeText(c, "All 1-white go +1 extra step this round",
-                    Toast.LENGTH_SHORT).show();
-
-            MainActivity.red_set_4_activated = true;
-        }
     }
 }

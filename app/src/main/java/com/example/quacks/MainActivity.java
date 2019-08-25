@@ -103,10 +103,17 @@ public class MainActivity extends AppCompatActivity implements
 
     public ImageView img_current_item;
 
+    //Yellow set 3 uses this
     public static int currentExplotionValue = 7;
     public static boolean isExploded = false;
 
     public static MainActivity mainActivity;
+
+
+    //Red_set_4 activates this
+    public static boolean red_set_4_activated = false;
+    public static boolean yellow_set_2_activated = false;
+    public static int yellow_set_3_and_4_count = 0;
 
     //public static ArrayList<Integer> arrBag = new ArrayList<>(Arrays.asList(0, 0, 0, 0, 1, 1, 2, 3, 4));
     public static ArrayList<Integer> arrBag = new ArrayList<>(Arrays.asList(0, 0, 0, 0, 1, 1, 14, 15, 16, 14, 14, 14)); //Yellow
@@ -296,6 +303,23 @@ public class MainActivity extends AppCompatActivity implements
         currentStep += stepValue[itemNr];
 
 
+        //For yellow set 2 only
+        if(yellow_set_2_activated){
+
+            if((new ArrayList<>(Arrays.asList(0, 3, 4, 7, 10, 13, 14, 17))).contains(itemNr)){
+                currentStep += 1;
+            }else if((new ArrayList<>(Arrays.asList(1, 5, 8, 11, 15))).contains(itemNr)){
+                currentStep += 2;
+            }else if((new ArrayList<>(Arrays.asList(6, 9, 12, 16))).contains(itemNr)){
+                currentStep += 4;
+            }else if(itemNr == 2){
+                currentStep += 3;
+            }
+
+            yellow_set_2_activated = false;
+        }
+
+
         //If item is WHITE 1, 2, 3
         if(itemNr == 0 || itemNr == 1 || itemNr == 2){
             currentWhite += (itemNr + 1);
@@ -310,7 +334,7 @@ public class MainActivity extends AppCompatActivity implements
         }
 
         //If item is Blue 1, 2, 4
-        if(itemNr == 10 || itemNr == 11 || itemNr == 12) {
+        else if(itemNr == 10 || itemNr == 11 || itemNr == 12) {
             ColorSet.Blue(c, itemNr);
         }
 
@@ -324,6 +348,17 @@ public class MainActivity extends AppCompatActivity implements
             ColorSet.Yellow(c);
 
         }
+
+        //For red set 4 only
+        if(red_set_4_activated){
+            if(itemNr == 0){
+                Toast.makeText(c, "+1 extra step",
+                        Toast.LENGTH_SHORT).show();
+                currentStep += 1;
+            }
+        }
+
+
 
 
         //Update the board state
@@ -450,6 +485,9 @@ public class MainActivity extends AppCompatActivity implements
         currentWhite = 0;
 
         isExploded = false;
+        red_set_4_activated = false;
+        yellow_set_2_activated = false;
+        yellow_set_3_and_4_count = 0;
 
         //getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(0, R.anim.exit_to_button).remove(this).commit();
         mainActivity.fragment_round_info.updateInfo();

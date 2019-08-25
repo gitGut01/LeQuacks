@@ -12,8 +12,13 @@ import com.example.quacks.ColorInfo.Green_set_1_info;
 import com.example.quacks.ColorInfo.Orange_set_info;
 import com.example.quacks.ColorInfo.Purple_set_1_info;
 import com.example.quacks.ColorInfo.Red_set_1_info;
+import com.example.quacks.ColorInfo.Red_set_2_info;
 import com.example.quacks.ColorInfo.Red_set_3_info;
+import com.example.quacks.ColorInfo.Red_set_4_info;
 import com.example.quacks.ColorInfo.Yellow_set_1_info;
+import com.example.quacks.ColorInfo.Yellow_set_2_info;
+import com.example.quacks.ColorInfo.Yellow_set_3_info;
+import com.example.quacks.ColorInfo.Yellow_set_4_info;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -86,12 +91,18 @@ public class ColorSet {
             new Blue_set_4_info()
     ));
 
-    public ArrayList<ColorInfoAb> red_set = new ArrayList<ColorInfoAb>(Arrays.asList(
-            new Red_set_1_info()
+    public ArrayList<ColorInfoAb> red_set = new ArrayList<>(Arrays.asList(
+            new Red_set_1_info(),
+            new Red_set_2_info(),
+            new Red_set_3_info(),
+            new Red_set_4_info()
     ));
 
     public ArrayList<ColorInfoAb> yellow_set = new ArrayList<ColorInfoAb>(Arrays.asList(
-            new Yellow_set_1_info()
+            new Yellow_set_1_info(),
+            new Yellow_set_2_info(),
+            new Yellow_set_3_info(),
+            new Yellow_set_4_info()
     ));
 
     private ArrayList<ColorInfoAb> green_set = new ArrayList<ColorInfoAb>(Arrays.asList(
@@ -237,8 +248,13 @@ public class ColorSet {
         switch(set_to_play[1]){
             case 1:
                 Red_set_1_info.doTheRule(c);
+                break;
             case 3:
                 Red_set_3_info.doTheRule(c);
+                break;
+            case 4:
+                Red_set_4_info.doTheRule(c);
+                break;
 
         }
 
@@ -247,8 +263,20 @@ public class ColorSet {
 
     public static void Yellow(Context c){
 
-        if(set_to_play[2] == 1){
-            Yellow_set_1_info.doTheRule(c);
+        switch(set_to_play[2]){
+            case 1:
+                Yellow_set_1_info.doTheRule(c);
+                break;
+            case 2:
+                Yellow_set_2_info.doTheRule(c);
+                break;
+            case 3:
+                Yellow_set_3_info.doTheRule(c);
+                break;
+            case 4:
+                Yellow_set_4_info.doTheRule(c);
+                break;
+
         }
     }
 
