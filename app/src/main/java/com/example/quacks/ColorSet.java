@@ -280,6 +280,15 @@ public class ColorSet {
         }
     }
 
+    public static void Green(){
+        switch (set_to_play[3]){
+            case 1:
+                Green_set_1_info.doTheRule();
+                break;
+
+        }
+    }
+
     public static void Purple(Context c){
 
     }

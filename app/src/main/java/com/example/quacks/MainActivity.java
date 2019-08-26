@@ -116,9 +116,10 @@ public class MainActivity extends AppCompatActivity implements
     public static int yellow_set_3_and_4_count = 0;
 
     //public static ArrayList<Integer> arrBag = new ArrayList<>(Arrays.asList(0, 0, 0, 0, 1, 1, 2, 3, 4));
-    public static ArrayList<Integer> arrBag = new ArrayList<>(Arrays.asList(0, 0, 0, 0, 1, 1, 14, 15, 16, 14, 14, 14)); //Yellow
+    //public static ArrayList<Integer> arrBag = new ArrayList<>(Arrays.asList(0, 0, 0, 0, 1, 1, 14, 15, 16, 14, 14, 14)); //Yellow
     //public static ArrayList<Integer> arrBag = new ArrayList<>(Arrays.asList(10, 10, 10, 10, 10, 10, 10, 10, 10)); //Blue
     //public static ArrayList<Integer> arrBag = new ArrayList<>(Arrays.asList(0, 0, 0, 0, 1, 1, 7, 8, 9, 7, 7, 9, 9, 9)); //red
+    public static ArrayList<Integer> arrBag = new ArrayList<>(Arrays.asList(0, 0, 0, 1, 1, 1, 4, 5, 6, 4, 4, 5, 5, 5)); //green
 
 
 
@@ -275,7 +276,7 @@ public class MainActivity extends AppCompatActivity implements
         btn_back_in_bag.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-
+                startPhaseB();
                 openDice();
             }
         });
@@ -328,6 +329,7 @@ public class MainActivity extends AppCompatActivity implements
                 isExploded = true;
                 //mainActivity.openBuyItem();
 
+                mainActivity.startPhaseB();
                 mainActivity.openRoundFinished();
 
             }
@@ -474,6 +476,10 @@ public class MainActivity extends AppCompatActivity implements
                 .replace(R.id.container_points, fragmentRattails, "RATTAILS")
                 .addToBackStack(null)
                 .commit();
+    }
+
+    public void startPhaseB(){
+        ColorSet.Green();
     }
 
     //Fresh initialization of new round
